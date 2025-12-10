@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Pirates</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+    <div class="shadow-edges"></div>
+
+    <div id="intro-screen" class="overlay">
+        <div class="box intro-box">
+            <h1 class="big-title">PUZZLE PIRATES</h1>
+            <p class="subtitle">SYSTEM DECRYPT</p>
+            <div class="text-block">
+                <p>Welcome to the <strong>Neon Grid</strong>.</p>
+                <p>You are a Decoder. Crack the passwords.</p>
+                <p>Watch your <strong>Integrity</strong> and <strong>Time</strong>.</p>
+                <p class="highlight">DECRYPT OR DISCONNECT</p>
+            </div>
+            <button id="start-btn" class="btn primary-btn">START GAME</button>
+        </div>
+    </div>
+
+    <div id="game-over-screen" class="overlay hidden">
+        <div class="box game-over-box">
+            <h1 class="big-title glitch">SYSTEM BREACHED</h1>
+            <p class="subtitle">CONNECTION LOST</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div id="menu" class="side-panel">
+            <div class="menu-header">
+                <button id="close-menu-btn" class="icon-btn mobile-only">×</button>
+
+                <div class="logo-box">
+                    <div class="skull"></div>
+                </div>
+
+                <h2 class="game-title">PUZZLE PIRATES</h2>
+                <p class="version">VER 3.1.4</p>
+            </div>
+
+            <div class="pirate-section">
+                <div id="bubble" class="bubble hidden">
+                    <p id="bubble-text">"Arr! Good luck!"</p>
+                </div>
+
+                <div class="face-box glitch">
+                    <div class="face">
+                        <div class="patch"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="log-box">
+                <div class="log-header">
+                    <span>>_ SYSTEM LOG</span>
+                    <span class="cursor">█</span>
+                </div>
+                <div id="log-text" class="log-text">
+                </div>
+            </div>
+
+            <div class="settings-box">
+                <label class="label">THREAT LEVEL</label>
+                <div class="select-box">
+                    <select id="level-select">
+                        <option value="easy">EASY (7 Lives)</option>
+                        <option value="medium">MEDIUM (6 Lives)</option>
+                        <option value="hard">HARD (5 Lives)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <div class="mobile-top">
+                <div class="logo-text">PP: DECRYPT</div>
+                <button id="open-menu-btn" class="icon-btn">☰</button>
+            </div>
+
+            <div class="card">
+                <div class="status-bar">
+
+                    <div class="stat-box">
+                        <label>INTEGRITY</label>
+                        <div class="bar-bg">
+                            <div id="integrity-bar" class="bar green" style="width: 100%;"></div>
+                        </div>
+                        <span id="integrity-text">100%</span>
+                    </div>
+
+                    <div class="stat-box">
+                        <label>TIME LEFT</label>
+                        <div class="bar-bg">
+                            <div id="time-bar" class="bar blue" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <div id="lives-box" class="lives-box"></div>
+                </div>
+
+                <div class="drawing-area">
+                    <svg id="drawing" viewBox="0 0 200 250">
+                        <defs>
+                            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+
+                        <line x1="20" y1="230" x2="180" y2="230" class="line base" />
+                        <line x1="40" y1="230" x2="40" y2="20" class="line post" />
+                        <line x1="40" y1="20" x2="120" y2="20" class="line top" />
+                        <line x1="120" y1="20" x2="120" y2="50" class="line rope" />
+
+                        <circle cx="120" cy="70" r="20" class="body head" />
+                        <line x1="120" y1="90" x2="120" y2="170" class="body torso" />
+                        <line x1="120" y1="110" x2="90" y2="140" class="body arm-l" />
+                        <line x1="120" y1="110" x2="150" y2="140" class="body arm-r" />
+                        <line x1="120" y1="170" x2="90" y2="210" class="body leg-l" />
+                        <line x1="120" y1="170" x2="150" y2="210" class="body leg-r" />
+                    </svg>
+                </div>
+
+                <div id="word-box" class="word-box"></div>
+
+                <div class="keys-box">
+                    <div id="keys" class="keys"></div>
+                </div>
+
+                <div class="buttons">
+                    <button id="hint-btn" class="btn hint-btn" disabled>HINT (-5%)</button>
+                    <button id="reset-btn" class="btn reset-btn">REBOOT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="win-screen" class="overlay hidden">
+        <div class="box modal-box">
+            <h2 class="big-title green-text">SYSTEM UNLOCKED</h2>
+            <div class="modal-info">
+                <p>PASSWORD: <span id="final-word" class="highlight">UNKNOWN</span></p>
+                <p class="score">SCORE: <span id="final-score">0</span></p>
+            </div>
+            <button id="play-again-btn" class="btn primary-btn">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <svg style="display: none;">
+        <symbol id="heart" viewBox="0 0 24 24">
+            <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </symbol>
+        <symbol id="heart-broken" viewBox="0 0 24 24">
+            <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            <path d="M4 4L20 20M20 4L4 20" stroke="black" stroke-width="2" />
+        </symbol>
+    </svg>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
