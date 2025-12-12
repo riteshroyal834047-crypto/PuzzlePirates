@@ -94,5 +94,7 @@ const TIME_LIMIT = 60; // Give players 60 seconds instead of 30
 *   **Fonts**: *Orbitron* and *Rajdhani* from Google Fonts.
 *   **Effects**: *Canvas Confetti* library for the win explosion.
 *   **Design**: Custom Neon Cyberpunk aesthetic.
+  
+link of website https://unknown-shiva.github.io/PuzzlePirates/
 
 Happy Hacking! 🏴‍☠️
