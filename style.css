@@ -1,25 +1,3 @@
-:root {
-    --dark-bg: #050510;
-    --panel-bg: rgba(10, 15, 30, 0.75);
-
-    --cyan: #00ffff;
-    --pink: #ff00ff;
-    --purple: #bd00ff;
-    --green: #00ff00;
-    --red: #ff3333;
-    --yellow: #ffff00;
-
-    --white: #ffffff;
-    --gray: #8899a6;
-
-    --border: 1px solid rgba(0, 255, 255, 0.2);
-    --glow: 0 0 20px rgba(0, 255, 255, 0.05);
-
-    --title-font: 'Orbitron', sans-serif;
-    --text-font: 'Rajdhani', sans-serif;
-    --code-font: 'Courier New', monospace;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -27,9 +5,9 @@
 }
 
 body {
-    background-color: var(--dark-bg);
-    color: var(--white);
-    font-family: var(--text-font);
+    background-color: #050510;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
     height: 100vh;
     overflow: hidden;
 }
@@ -111,7 +89,7 @@ body::after {
 .side-panel {
     width: 320px;
     background: rgba(5, 5, 10, 0.95);
-    border-right: 1px solid var(--cyan);
+    border-right: 1px solid #00ffff;
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
@@ -132,20 +110,20 @@ body::after {
 .card {
     width: 100%;
     max-width: 900px;
-    background: var(--panel-bg);
+    background: rgba(10, 15, 30, 0.75);
     backdrop-filter: blur(12px);
-    border: var(--border);
+    border: 1px solid rgba(0, 255, 255, 0.2);
     border-radius: 12px;
     padding: 2rem;
-    box-shadow: var(--glow);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
 .game-title {
-    font-family: var(--title-font);
-    color: var(--cyan);
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffff;
     text-align: center;
     margin-top: 1rem;
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
@@ -154,16 +132,16 @@ body::after {
 .version {
     text-align: center;
     font-size: 0.7rem;
-    color: var(--pink);
+    color: #ff00ff;
     letter-spacing: 3px;
     margin-top: 5px;
 }
 
 .big-title {
-    font-family: var(--title-font);
+    font-family: 'Orbitron', sans-serif;
     font-size: 3rem;
-    color: var(--cyan);
-    text-shadow: 0 0 15px var(--cyan);
+    color: #00ffff;
+    text-shadow: 0 0 15px #00ffff;
 }
 
 .logo-box {
@@ -173,8 +151,8 @@ body::after {
 
 .skull {
     font-size: 3rem;
-    color: var(--cyan);
-    text-shadow: 0 0 10px var(--cyan);
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
     animation: pulse 3s infinite alternate;
 }
 
@@ -184,11 +162,11 @@ body::after {
 
 @keyframes pulse {
     from {
-        text-shadow: 0 0 10px var(--pink);
+        text-shadow: 0 0 10px #ff00ff;
     }
 
     to {
-        text-shadow: 0 0 20px var(--pink);
+        text-shadow: 0 0 20px #ff00ff;
     }
 }
 
@@ -203,12 +181,12 @@ body::after {
 .face-box {
     width: 100px;
     height: 100px;
-    border: 2px solid var(--purple);
+    border: 2px solid #bd00ff;
     border-radius: 50%;
     background: #222;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 0 15px var(--purple);
+    box-shadow: 0 0 15px #bd00ff;
 }
 
 .face {
@@ -226,15 +204,15 @@ body::after {
     height: 30px;
     background: #000;
     border-radius: 50%;
-    border: 1px solid var(--red);
+    border: 1px solid #ff3333;
 }
 
 .bubble {
     background: rgba(20, 20, 40, 0.9);
-    border: 1px solid var(--cyan);
+    border: 1px solid #00ffff;
     padding: 10px;
     border-radius: 8px;
-    color: var(--cyan);
+    color: #00ffff;
     text-align: center;
     animation: float 3s ease-in-out infinite;
 }
@@ -273,7 +251,7 @@ body::after {
 .stat-box label {
     display: block;
     font-size: 0.8rem;
-    color: var(--gray);
+    color: #8899a6;
     margin-bottom: 5px;
 }
 
@@ -292,18 +270,18 @@ body::after {
 }
 
 .green {
-    background-color: var(--green);
-    color: var(--green);
+    background-color: #00ff00;
+    color: #00ff00;
 }
 
 .blue {
-    background-color: var(--cyan);
-    color: var(--cyan);
+    background-color: #00ffff;
+    color: #00ffff;
 }
 
 .red {
-    background-color: var(--red);
-    color: var(--red);
+    background-color: #ff3333;
+    color: #ff3333;
 }
 
 .lives-box {
@@ -314,8 +292,8 @@ body::after {
 .heart {
     width: 24px;
     height: 24px;
-    fill: var(--pink);
-    filter: drop-shadow(0 0 5px var(--pink));
+    fill: #ff00ff;
+    filter: drop-shadow(0 0 5px #ff00ff);
 }
 
 .heart.broken {
@@ -337,7 +315,7 @@ body::after {
 
 .line {
     fill: none;
-    stroke: var(--cyan);
+    stroke: #00ffff;
     stroke-width: 4;
     stroke-linecap: round;
     opacity: 0.2;
@@ -346,15 +324,15 @@ body::after {
 
 .line.active {
     opacity: 1;
-    filter: drop-shadow(0 0 8px var(--cyan));
+    filter: drop-shadow(0 0 8px #00ffff);
 }
 
 .body {
     fill: none;
-    stroke: var(--red);
+    stroke: #ff3333;
     stroke-width: 4;
     opacity: 0;
-    filter: drop-shadow(0 0 5px var(--red));
+    filter: drop-shadow(0 0 5px #ff3333);
     transition: opacity 0.2s;
 }
 
@@ -374,14 +352,14 @@ body::after {
 .letter {
     width: 50px;
     height: 60px;
-    border-bottom: 3px solid var(--purple);
+    border-bottom: 3px solid #bd00ff;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2.5rem;
-    font-family: var(--title-font);
-    color: var(--cyan);
-    text-shadow: 0 0 10px var(--cyan);
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
 }
 
 .letter.show {
@@ -406,8 +384,8 @@ body::after {
     height: 50px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--white);
-    font-family: var(--text-font);
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
@@ -416,7 +394,7 @@ body::after {
 
 .key-btn:hover:not(:disabled) {
     background: rgba(0, 255, 255, 0.2);
-    border-color: var(--cyan);
+    border-color: #00ffff;
     transform: translateY(-2px);
 }
 
@@ -428,14 +406,14 @@ body::after {
 
 .key-btn.correct {
     background: rgba(0, 255, 0, 0.2);
-    border-color: var(--green);
-    color: var(--green);
+    border-color: #00ff00;
+    color: #00ff00;
 }
 
 .key-btn.wrong {
     background: rgba(255, 50, 50, 0.2);
-    border-color: var(--red);
-    color: var(--red);
+    border-color: #ff3333;
+    color: #ff3333;
 }
 
 .buttons {
@@ -446,7 +424,7 @@ body::after {
 
 .btn {
     padding: 12px 24px;
-    font-family: var(--title-font);
+    font-family: 'Orbitron', sans-serif;
     font-size: 1rem;
     cursor: pointer;
     background: transparent;
@@ -458,13 +436,13 @@ body::after {
 }
 
 .hint-btn {
-    border: 1px solid var(--yellow);
-    color: var(--yellow);
+    border: 1px solid #ffff00;
+    color: #ffff00;
     flex: 2;
 }
 
 .hint-btn:hover:not(:disabled) {
-    background: var(--yellow);
+    background: #ffff00;
     color: #000;
 }
 
@@ -473,13 +451,13 @@ body::after {
 }
 
 .reset-btn {
-    border: 1px solid var(--cyan);
-    color: var(--cyan);
+    border: 1px solid #00ffff;
+    color: #00ffff;
     flex: 1;
 }
 
 .reset-btn:hover {
-    background: var(--cyan);
+    background: #00ffff;
     color: #000;
 }
 
@@ -503,7 +481,7 @@ body::after {
 
 .box {
     background: rgba(5, 5, 10, 0.95);
-    border: 2px solid var(--cyan);
+    border: 2px solid #00ffff;
     padding: 3rem;
     max-width: 600px;
     text-align: center;
@@ -511,21 +489,21 @@ body::after {
 }
 
 .primary-btn {
-    border: 1px solid var(--pink);
-    color: var(--pink);
+    border: 1px solid #ff00ff;
+    color: #ff00ff;
     width: 100%;
     margin-top: 1rem;
 }
 
 .primary-btn:hover {
-    background: var(--pink);
+    background: #ff00ff;
     color: #000;
 }
 
 .glitch {
     animation: glitchText 1s infinite alternate;
-    color: var(--red);
-    text-shadow: 2px 2px var(--purple);
+    color: #ff3333;
+    text-shadow: 2px 2px #bd00ff;
 }
 
 @keyframes glitchText {
@@ -561,14 +539,14 @@ body::after {
     height: 150px;
     display: flex;
     flex-direction: column;
-    font-family: var(--code-font);
+    font-family: 'Courier New', monospace;
     margin-bottom: 2rem;
 }
 
 .log-header {
     background: rgba(255, 255, 255, 0.05);
     padding: 5px;
-    color: var(--gray);
+    color: #8899a6;
     font-size: 0.8rem;
 }
 
@@ -576,7 +554,7 @@ body::after {
     flex: 1;
     padding: 10px;
     overflow-y: auto;
-    color: var(--green);
+    color: #00ff00;
     font-size: 0.8rem;
 }
 
@@ -594,7 +572,7 @@ body::after {
     display: none;
     justify-content: space-between;
     padding: 1rem;
-    border-bottom: 1px solid var(--cyan);
+    border-bottom: 1px solid #00ffff;
     background: rgba(5, 5, 10, 0.95);
     margin-bottom: 1rem;
 }
@@ -628,7 +606,7 @@ body::after {
         right: 1rem;
         border: none;
         background: none;
-        color: var(--red);
+        color: #ff3333;
         font-size: 2rem;
     }
 
